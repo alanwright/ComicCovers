@@ -16,7 +16,7 @@
 		      <span class="input-group-btn">
 		        <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
 		      </span>
-		      <input type="text" class="form-control" ng-model="searchText">
+		      <input type="text" class="form-control" ng-model="searchText" placeholder="Search Comics">
 		    </div><!-- /input-group -->
 		  </div><!-- /.col-lg-6 -->
 		  <div class="col-lg-4"></div>
@@ -26,7 +26,6 @@
 	<div class="container" ng-controller="ComicController as comicCtrl">
 		<div class="row">
 			<div class="col col-lg-12">
-			<h3>Comics</h3>
 				<div class="container" infinite-scroll='comicFactory.nextPage()' infinite-scroll-disabled='comicFactory.busy' infinite-scroll-distance='1'> <!--data-masonry-options='{ "transitionDuration": 0 }'-->
 					<div masonry>
 						<div class="masonry-brick" ng-repeat="comic in comicFactory.items | filter:searchText" ng-show="comic.hasImage">
