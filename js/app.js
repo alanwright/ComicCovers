@@ -1,3 +1,3 @@
 'use strict';
 
-angular.module('app', ['app.controllers', 'wu.masonry']);
+angular.module('app', ['app.controllers', 'app.directives', 'wu.masonry']);

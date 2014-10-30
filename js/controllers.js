@@ -3,6 +3,7 @@ var myApp = angular.module('app.controllers', ['infinite-scroll']);
 
 myApp.controller('ComicController', function($scope, ComicFactory) {
   $scope.comicFactory = new ComicFactory();
+  $scope.comicFactory.nextPage();
 });
 
 // Factory to pull more json

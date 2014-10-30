@@ -5,6 +5,8 @@
 	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css"></link>
 	<link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="css/app.css"></link>
+	<link rel="stylesheet" type="text/css" href="css/component.css" />
+	<script src="js/modernizr.custom.js"></script>
 </head>
 <body>
 	<div class="jumbotron">
@@ -23,18 +25,14 @@
 		</div><!-- /.row -->
 	</div>
 
-	<div class="container" ng-controller="ComicController as comicCtrl">
-		<div class="row">
-			<div class="col col-lg-12">
-				<div class="container" infinite-scroll='comicFactory.nextPage()' infinite-scroll-disabled='comicFactory.busy' infinite-scroll-distance='1'> <!--data-masonry-options='{ "transitionDuration": 0 }'-->
-					<div masonry>
-						<div class="masonry-brick" ng-repeat="comic in comicFactory.items | filter:searchText" ng-show="comic.hasImage">
-					  		<img ng-src="{{comic.image}}"/>
-					  	</div>
-					</div>
-				</div>
-			</div>
-		</div>
+	<div class="container" ng-controller="ComicController as comicCtrl" data-masonry-options='{ "transitionDuration": 0 }' 
+		infinite-scroll='comicFactory.nextPage()' infinite-scroll-disabled='comicFactory.busy' infinite-scroll-distance='1' initial-load-directive>
+		<ul class="grid effect-1" id="grid" masonry>
+			<li class="masonry-brick" ng-repeat="comic in comicFactory.items | filter:searchText" ng-show="comic.hasImage" repeat-directive>
+		  		<img ng-src="{{comic.image}}"/>
+		  	</li>
+		</ul>
+	</div>
 
     <script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
     <script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -50,9 +48,12 @@
     <script type="text/javascript" src="bower_components/imagesloaded/imagesloaded.js"></script>
     <script type="text/javascript" src="bower_components/masonry/dist/masonry.pkgd.js"></script>
     <script type="text/javascript" src="bower_components/angular/angular.js"></script>
+	<script type="text/javascript" src="bower_components/classie/classie.js"></script>
+	<script type="text/javascript" src="js/AnimOnScroll.js"></script>
     <script type="text/javascript" src="bower_components/angular-masonry/angular-masonry.js"></script>
     <script type="text/javascript" src="bower_components/ngInfiniteScroll/build/ng-infinite-scroll.min.js"></script>
     <script type="text/javascript" src="js/app.js"></script>
     <script type="text/javascript" src="js/controllers.js"></script>
+    <script type="text/javascript" src="js/directives.js"></script>
   </body>
 </html>

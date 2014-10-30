@@ -13,15 +13,6 @@ h1.heading {
 	text-align: center;
 }
 
-.masonry-brick { 
-	width: 25%;
-	float: left;
-}
-
-.masonry-brick img{
-	width: 100%
-}
-
 .navbar {
 	border-radius: 0px;
 }
