@@ -1,4 +1,5 @@
 'use strict';
+
 var myApp = angular.module('app.controllers', ['infinite-scroll']);
 
 myApp.controller('ComicController', function($scope, ComicFactory) {
