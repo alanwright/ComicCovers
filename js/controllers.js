@@ -17,20 +17,20 @@ myApp.factory('ComicFactory', function($http) {
 
   ComicFactory.prototype.nextPage = function() {
     if(this.busy) return;
-        this.busy = true;
+    this.busy = true;
 
-        var url = '/comics.json';
-        $http.get(url).success(function(data){
-            var len = Math.min(this.after + 10, data.length);
-            for(var i = this.after; i < len; i++) {
-                this.items.push(data[i]);
-            }
-            this.after = len;
-            this.busy = false;
-        }.bind(this)).
-        error(function(data){
-            alert("Couldn't find JSON");
-        });
+    var url = '/comics.json';
+    $http.get(url).success(function(data){
+        var len = Math.min(this.after + 10, data.length);
+        for(var i = this.after; i < len; i++) {
+            this.items.push(data[i]);
+        }
+        this.after = len;
+        this.busy = false;
+    }.bind(this)).
+    error(function(data){
+        alert("Couldn't find JSON");
+    });
   };
 
   return ComicFactory;
