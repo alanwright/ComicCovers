@@ -21,11 +21,14 @@ myApp.factory('ComicFactory', function($http) {
 
     var url = '/comics.json';
     $http.get(url).success(function(data){
-        var len = Math.min(this.after + 10, data.length);
-        for(var i = this.after; i < len; i++) {
-            this.items.push(data[i]);
+    	var count = 0, i = this.after;
+        for(i = this.after; i < data.length && count < 10; i++) {
+        	if(data[i].hasImage) {
+            	this.items.push(data[i]);
+            	++count;
+            }
         }
-        this.after = len;
+        this.after = i;
         this.busy = false;
     }.bind(this)).
     error(function(data){

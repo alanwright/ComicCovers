@@ -27,10 +27,10 @@
 
 	<div class="container" ng-controller="ComicController as comicCtrl" 
 		infinite-scroll='comicFactory.nextPage()' infinite-scroll-disabled='comicFactory.busy' infinite-scroll-distance='1' initial-load-directive>
-		<ul class="grid" id="grid" masonry>
-			<li class="masonry-brick" ng-repeat="comic in comicFactory.items | comicFilter:searchText" ng-show="comic.hasImage" repeat-directive>
+		<div class="row">
+			<div id="cover" class="col-md-4" ng-repeat="comic in comicFactory.items | comicFilter:searchText" ng-show="comic.hasImage" repeat-directive>
 		  		<img ng-src="{{comic.image}}"/>
-		  	</li>
+		  	</div>
 		</ul>
 	</div>
 
@@ -46,10 +46,8 @@
     <script type="text/javascript" src="bower_components/outlayer/item.js"></script>
     <script type="text/javascript" src="bower_components/outlayer/outlayer.js"></script>
     <script type="text/javascript" src="bower_components/imagesloaded/imagesloaded.js"></script>
-    <script type="text/javascript" src="bower_components/masonry/dist/masonry.pkgd.js"></script>
     <script type="text/javascript" src="bower_components/angular/angular.js"></script>
 	<script type="text/javascript" src="bower_components/classie/classie.js"></script>
-    <script type="text/javascript" src="bower_components/angular-masonry/angular-masonry.js"></script>
     <script type="text/javascript" src="bower_components/ngInfiniteScroll/build/ng-infinite-scroll.min.js"></script>
     <script type="text/javascript" src="js/controllers.js"></script>
     <script type="text/javascript" src="js/directives.js"></script>
